@@ -2,7 +2,9 @@ package com.iaum00557329.androidims.androidims;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.EditText;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,10 +17,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-
-/**
- * Created by lommi on 26/02/2017.
- */
 
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
@@ -33,7 +31,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params){
 
         String type = params[0];
-        String login_url = "http://192.168.1.11/ims/Android/login.php";
+        /*String login_url = "http://192.168.1.11/ims/Android/login.php";*/
+        String login_url = "http://10.254.236.43/ims/Android/login.php";
 
         if (type.equals("login")){
 
@@ -97,8 +96,25 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected void onPostExecute(String result){
 
-        alertDialog.setMessage(result);
-        alertDialog.show();
+        if(result == null)
+        {
+            alertDialog.setMessage("Cannot Connect To Server");
+            alertDialog.show();
+        }
+        else if (result.contains("Login Success"))
+        {
+            Intent intent = new Intent(context,OrdersActivity.class);
+            context.startActivity(intent);
+            alertDialog.setMessage(result);
+            alertDialog.show();
+        }
+        else if (result.contains("Login Unsuccessful"))
+        {
+            /*Intent intent = new Intent(context,OrdersActivity.class);
+            context.startActivity(intent);*/
+            alertDialog.setMessage(result);
+            alertDialog.show();
+        }
 
     }
 
