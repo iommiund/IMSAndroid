@@ -1,10 +1,9 @@
 package com.iaum00557329.androidims.androidims;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,7 +20,6 @@ import java.net.URLEncoder;
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     Context context;
-    AlertDialog alertDialog;
 
     BackgroundWorker (Context ctx){
         context = ctx;
@@ -88,9 +86,6 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute(){
 
-        alertDialog = new AlertDialog.Builder(context).create();
-        alertDialog.setTitle("Login Status");
-
     }
 
     @Override
@@ -98,18 +93,17 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
         if(result == null)
         {
-            alertDialog.setMessage("Cannot Connect To Server");
-            alertDialog.show();
+            Toast.makeText(context, "Cannot Connect To Server", Toast.LENGTH_SHORT).show();
         }
         else if (result.contains("Login Success"))
         {
             Intent intent = new Intent(context,OrdersActivity.class);
             context.startActivity(intent);
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
         else if (result.contains("Login Unsuccessful"))
         {
-            alertDialog.setMessage(result);
-            alertDialog.show();
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
 
     }

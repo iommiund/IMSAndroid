@@ -2,6 +2,7 @@ package com.iaum00557329.androidims.androidims;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class OrdersActivity extends AppCompatActivity {
 
@@ -10,4 +11,9 @@ public class OrdersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
     }
+
+    public void listOrders(View view){
+
+    }
+
 }
