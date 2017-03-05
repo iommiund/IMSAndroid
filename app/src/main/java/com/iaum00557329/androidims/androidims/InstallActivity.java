@@ -65,4 +65,8 @@ public class InstallActivity extends AppCompatActivity{
         //initiating the qr code scan
         codeScan.initiateScan();
     }
+
+    public void installResource(View view) {
+
+    }
 }
