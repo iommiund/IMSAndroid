@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/install"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Install"
+        android:layout_marginTop="16dp"
+        android:onClick="openInstall"/>
+
+    <Button
+        android:id="@+id/replace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Replace"
+        android:layout_marginTop="16dp"
+        android:onClick="openReplace"/>
+
+    <Button
+        android:id="@+id/collect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="collect"
+        android:layout_marginTop="16dp"
+        android:onClick="openCollect"/>
+
+</LinearLayout>

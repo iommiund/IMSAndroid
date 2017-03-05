@@ -97,7 +97,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         }
         else if (result.contains("Login Success"))
         {
-            Intent intent = new Intent(context,OrdersActivity.class);
+            Intent intent = new Intent(context,OptionsActivity.class);
             context.startActivity(intent);
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
