@@ -19,11 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OrdersActivity" />
         <activity android:name=".OptionsActivity" />
         <activity android:name=".InstallActivity" />
         <activity android:name=".ReplaceActivity" />
-        <activity android:name=".CollectActivity"></activity>
+        <activity android:name=".CollectActivity" />
     </application>
 
 </manifest>
