@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.iaum00557329.androidims.androidims.InstallActivity">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/orderId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Order Id"
+        android:inputType="number"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resource:"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewResource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/scanResource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan Resource"
+        android:onClick="scanResource"/>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>
