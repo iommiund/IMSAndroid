@@ -17,11 +17,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class BackgroundWorker extends AsyncTask<String,Void,String> {
+public class BackgroundWorkerInstall extends AsyncTask<String,Void,String> {
 
     Context context;
 
-    BackgroundWorker (Context ctx){
+    BackgroundWorkerInstall (Context ctx){
         context = ctx;
     }
 
@@ -29,18 +29,18 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params){
 
         String type = params[0];
-        /*String login_url = "http://192.168.1.11/ims/Android/login.php";*/
-        String login_url = "http://10.254.236.43/ims/Android/login.php";
+        /*String install_url = "http://192.168.1.11/ims/Android/install.php";*/
+        String install_url = "http://10.254.236.43/ims/Android/install.php";
 
-        if (type.equals("login")){
+        if (type.equals("install")){
 
             try {
 
-                URL url = new URL(login_url);
+                URL url = new URL(install_url);
                 try {
 
-                    String username = params[1];
-                    String password = params[2];
+                    String orderId = params[1];
+                    String resource = params[2];
 
                     HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                     httpURLConnection.setRequestMethod("POST");
@@ -48,8 +48,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                     httpURLConnection.setDoInput(true);
                     OutputStream outputStream = httpURLConnection.getOutputStream();
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                    String post_data = URLEncoder.encode("username","UTF-8")+"="+URLEncoder.encode(username,"UTF-8")+"&"
-                            +URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8");
+                    String post_data = URLEncoder.encode("orderId","UTF-8")+"="+URLEncoder.encode(orderId,"UTF-8")+"&"
+                            +URLEncoder.encode("resource","UTF-8")+"="+URLEncoder.encode(resource,"UTF-8");
                     bufferedWriter.write(post_data);
                     bufferedWriter.flush();
                     bufferedWriter.close();
@@ -93,15 +93,15 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
         if(result == null)
         {
-            Toast.makeText(context, "Cannot Connect To Server", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Action not successful", Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Login Success"))
+        else if (result.contains("Install Successful"))
         {
             Intent intent = new Intent(context,OptionsActivity.class);
             context.startActivity(intent);
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Login Unsuccessful"))
+        else if (result.contains("Install Unsuccessful"))
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }

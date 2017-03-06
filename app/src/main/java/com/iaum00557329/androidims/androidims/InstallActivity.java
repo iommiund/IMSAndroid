@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -19,6 +20,7 @@ public class InstallActivity extends AppCompatActivity{
     //View Objects
     private Button scanResource;
     private TextView textViewResource;
+    private EditText editTextOrderId;
 
     //code scanner object
     private IntentIntegrator codeScan;
@@ -31,9 +33,11 @@ public class InstallActivity extends AppCompatActivity{
         //View Objects
         scanResource = (Button) findViewById(R.id.scanResource);
         textViewResource = (TextView) findViewById(R.id.textViewResource);
+        editTextOrderId = (EditText) findViewById(R.id.orderId);
 
         //initializing scan object
         codeScan = new IntentIntegrator(this);
+
     }
 
     //Getting the scan results
@@ -67,6 +71,11 @@ public class InstallActivity extends AppCompatActivity{
     }
 
     public void installResource(View view) {
+        String orderId = editTextOrderId.getText().toString();
+        String resource = textViewResource.getText().toString();
+        String type = "install";
 
+        BackgroundWorkerInstall backgroundWorkerInstall = new BackgroundWorkerInstall(this);
+        backgroundWorkerInstall.execute(type, orderId, resource);
     }
 }
