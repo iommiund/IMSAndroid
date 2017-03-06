@@ -95,6 +95,10 @@ public class BackgroundWorkerInstall extends AsyncTask<String,Void,String> {
         {
             Toast.makeText(context, "Action not successful", Toast.LENGTH_SHORT).show();
         }
+        else if (result.contains("All fields are required"))
+        {
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
+        }
         else if (result.contains("Install Successful"))
         {
             Intent intent = new Intent(context,OptionsActivity.class);
