@@ -17,11 +17,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class BackgroundWorkerInstall extends AsyncTask<String,Void,String> {
+public class BackgroundWorkerCollect extends AsyncTask<String,Void,String> {
 
     Context context;
 
-    BackgroundWorkerInstall (Context ctx){
+    BackgroundWorkerCollect (Context ctx){
         context = ctx;
     }
 
@@ -29,14 +29,14 @@ public class BackgroundWorkerInstall extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params){
 
         String type = params[0];
-        /*String install_url = "http://192.168.1.11/ims/Android/install.php";*/
-        String install_url = "http://10.254.236.43/ims/Android/install.php";
+        /*String collect_url = "http://192.168.1.11/ims/Android/collect.php";*/
+        String collect_url = "http://10.254.236.43/ims/Android/collect.php";
 
-        if (type.equals("install")){
+        if (type.equals("collect")){
 
             try {
 
-                URL url = new URL(install_url);
+                URL url = new URL(collect_url);
                 try {
 
                     String orderId = params[1];
@@ -132,5 +132,5 @@ public class BackgroundWorkerInstall extends AsyncTask<String,Void,String> {
     protected void onProgressUpdate(Void... values){
         super.onProgressUpdate(values);
     }
-
+    
 }
