@@ -99,7 +99,7 @@ public class BackgroundWorkerReplace extends AsyncTask<String,Void,String> {
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Install order provided not found"))
+        else if (result.contains("Replace order provided not found"))
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
@@ -111,11 +111,19 @@ public class BackgroundWorkerReplace extends AsyncTask<String,Void,String> {
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Resources table could not be updated"))
+        else if (result.contains("Resources table could not be updated for new resource"))
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Transactions table could not be updated"))
+        else if (result.contains("Resources table could not be updated for old resource"))
+        {
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
+        }
+        else if (result.contains("Transactions table could not be updated for new resource"))
+        {
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
+        }
+        else if (result.contains("Transactions table could not be updated for old resource"))
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
