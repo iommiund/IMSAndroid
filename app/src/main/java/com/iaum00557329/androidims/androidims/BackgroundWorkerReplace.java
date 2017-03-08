@@ -127,7 +127,7 @@ public class BackgroundWorkerReplace extends AsyncTask<String,Void,String> {
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Install Successful"))
+        else if (result.contains("Replace Successful"))
         {
             Intent intent = new Intent(context,OptionsActivity.class);
             context.startActivity(intent);

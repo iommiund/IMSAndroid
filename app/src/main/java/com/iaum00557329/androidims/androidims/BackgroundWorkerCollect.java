@@ -99,11 +99,11 @@ public class BackgroundWorkerCollect extends AsyncTask<String,Void,String> {
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Install order provided not found"))
+        else if (result.contains("Collect order provided not found"))
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Resource is not available on your location, or is not of the same type"))
+        else if (result.contains("Scanned resource is not as expected"))
         {
             Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         }
@@ -111,15 +111,15 @@ public class BackgroundWorkerCollect extends AsyncTask<String,Void,String> {
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Resources table could not be updated"))
+        else if (result.contains("Resources table could not be updated for old resource"))
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Transactions table could not be updated"))
+        else if (result.contains("Transactions table could not be updated for old resource"))
         {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
-        else if (result.contains("Install Successful"))
+        else if (result.contains("Collection Successful"))
         {
             Intent intent = new Intent(context,OptionsActivity.class);
             context.startActivity(intent);
