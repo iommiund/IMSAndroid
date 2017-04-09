@@ -29,8 +29,8 @@ public class BackgroundWorkerReplace extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params){
 
         String type = params[0];
-        /*String replace_url = "http://192.168.1.11/ims/Android/replace.php";*/
-        String replace_url = "http://10.254.236.43/ims/Android/replace.php";
+        String replace_url = "http://192.168.1.11/ims/Android/replace.php";
+        /*String replace_url = "http://10.254.236.43/ims/Android/replace.php";*/
 
         if (type.equals("replace")){
 

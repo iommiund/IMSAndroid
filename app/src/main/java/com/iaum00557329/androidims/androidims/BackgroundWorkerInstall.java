@@ -29,8 +29,8 @@ public class BackgroundWorkerInstall extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params){
 
         String type = params[0];
-        /*String install_url = "http://192.168.1.11/ims/Android/install.php";*/
-        String install_url = "http://10.254.236.43/ims/Android/install.php";
+        String install_url = "http://192.168.1.11/ims/Android/install.php";
+        /*String install_url = "http://10.254.236.43/ims/Android/install.php";*/
 
         if (type.equals("install")){
 

@@ -29,8 +29,8 @@ public class BackgroundWorkerCollect extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params){
 
         String type = params[0];
-        /*String collect_url = "http://192.168.1.11/ims/Android/collect.php";*/
-        String collect_url = "http://10.254.236.43/ims/Android/collect.php";
+        String collect_url = "http://192.168.1.11/ims/Android/collect.php";
+        /*String collect_url = "http://10.254.236.43/ims/Android/collect.php";*/
 
         if (type.equals("collect")){
 
